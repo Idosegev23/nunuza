@@ -59,13 +59,14 @@ const LoginPage = () => {
         } else {
           router.push('/dashboard')
         }
-      } catch (adminError) {
+      } catch {
         // If admins table doesn't exist or user is not admin, go to dashboard
         console.log(t('auth.admin_check_failed'))
         router.push('/dashboard')
       }
-    } catch (error: any) {
-      toast.error(error.message || t('auth.login_failed'))
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : t('auth.login_failed')
+      toast.error(errorMessage)
     } finally {
       setLoading(false)
     }
@@ -81,8 +82,9 @@ const LoginPage = () => {
       })
       
       if (error) throw error
-    } catch (error: any) {
-      toast.error(error.message || t('auth.google_signin_failed'))
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : t('auth.google_signin_failed')
+      toast.error(errorMessage)
     }
   }
 
@@ -112,7 +114,7 @@ const LoginPage = () => {
                 type="email"
                 autoComplete="email"
                 className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:z-10 sm:text-sm"
-                style={{ '--tw-ring-color': '#2D4B73' } as any}
+                style={{ '--tw-ring-color': '#2D4B73' } as React.CSSProperties}
                 onFocus={(e) => e.target.style.borderColor = '#2D4B73'}
                 placeholder={t('auth.email')}
               />
@@ -130,7 +132,7 @@ const LoginPage = () => {
                 type="password"
                 autoComplete="current-password"
                 className="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:z-10 sm:text-sm"
-                style={{ '--tw-ring-color': '#2D4B73' } as any}
+                style={{ '--tw-ring-color': '#2D4B73' } as React.CSSProperties}
                 onFocus={(e) => e.target.style.borderColor = '#2D4B73'}
                 placeholder={t('auth.password')}
               />

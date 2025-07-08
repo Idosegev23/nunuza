@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useAuthStore } from '@/stores/authStore'
 import { useCategories } from '@/hooks/useCategories'
 import { supabase } from '@/lib/supabase'
-import { addTestData, getTestPosts } from '@/lib/test-data'
+import { addTestData } from '@/lib/test-data'
 import toast from 'react-hot-toast'
 import { 
   UserPlusIcon, 
@@ -21,9 +21,6 @@ import {
   MapPinIcon,
   CurrencyDollarIcon,
   PhotoIcon,
-  UserGroupIcon,
-  TagIcon,
-  ChartBarIcon,
   CogIcon,
   CircleStackIcon
 } from '@heroicons/react/24/outline'
@@ -130,7 +127,7 @@ const AdminPage = () => {
       }
       
       setAdmins(adminsData || [])
-    } catch (error: any) {
+    } catch (error) {
       console.log('Admin loading failed:', error)
       setAdmins([])
     } finally {
@@ -161,7 +158,7 @@ const AdminPage = () => {
       }
       
       setPendingPosts(postsData || [])
-    } catch (error: any) {
+    } catch (error) {
       console.log('Pending posts loading failed:', error)
       setPendingPosts([])
     } finally {
@@ -187,7 +184,7 @@ const AdminPage = () => {
       setPendingPosts(pendingPosts.filter(post => post.id !== postId))
       
       toast.success(approve ? t('admin.post_approved') : t('admin.post_rejected'))
-    } catch (error: any) {
+    } catch (error) {
       toast.error(t('admin.approval_error'))
       console.error('Error processing approval:', error)
     } finally {
@@ -256,7 +253,7 @@ const AdminPage = () => {
       setAdmins([newAdmin, ...admins])
       setNewAdminEmail('')
       toast.success(`${newAdminEmail} has been added as an admin`)
-    } catch (error: any) {
+    } catch (error) {
       toast.error('Failed to add admin')
       console.error('Error adding admin:', error)
     } finally {
@@ -281,7 +278,7 @@ const AdminPage = () => {
         
         setAdmins(admins.filter(admin => admin.id !== adminId))
         toast.success(`${email} has been removed as an admin`)
-      } catch (error: any) {
+      } catch (error) {
         toast.error('Failed to remove admin')
         console.error('Error removing admin:', error)
       }

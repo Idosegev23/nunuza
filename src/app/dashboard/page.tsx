@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -33,7 +33,7 @@ import { ConversationList } from '@/components/messaging/ConversationList'
 import { ChatWindow } from '@/components/messaging/ChatWindow'
 import { Conversation } from '@/hooks/useConversations'
 
-export default function Dashboard() {
+function DashboardContent() {
   const { t } = useTranslation()
   const searchParams = useSearchParams()
   const { user } = useAuthStore()
@@ -641,5 +641,17 @@ export default function Dashboard() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#2D4B73' }}></div>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   )
 } 

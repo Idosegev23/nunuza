@@ -2,9 +2,9 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 // Import translation files
-const en = require('@/locales/en/common.json')
-const fr = require('@/locales/fr/common.json')
-const sw = require('@/locales/sw/common.json')
+import en from '@/locales/en/common.json'
+import fr from '@/locales/fr/common.json'
+import sw from '@/locales/sw/common.json'
 
 const resources = {
   en: { common: en },

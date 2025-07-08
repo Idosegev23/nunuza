@@ -4,7 +4,7 @@ import { Message } from '@/hooks/useMessages';
 import { useAuthStore } from '@/stores/authStore';
 import { useTranslation } from 'react-i18next';
 import { formatDistanceToNow } from 'date-fns';
-import { enUS, fr, sw } from 'date-fns/locale';
+import { enUS, fr } from 'date-fns/locale';
 import { CheckIcon, CheckCheckIcon } from 'lucide-react';
 
 interface MessageBubbleProps {
@@ -21,7 +21,7 @@ export function MessageBubble({ message, showSender = false }: MessageBubbleProp
   const getLocale = () => {
     switch (i18n.language) {
       case 'fr': return fr;
-      case 'sw': return sw;
+      case 'sw': return enUS; // Use English as fallback for Swahili since sw locale is not available in date-fns
       default: return enUS;
     }
   };

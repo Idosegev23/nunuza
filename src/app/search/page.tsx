@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'next/navigation'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, Suspense } from 'react'
 import Link from 'next/link'
 import {
   MagnifyingGlassIcon,
@@ -23,7 +23,7 @@ import { useFavorites } from '@/hooks/useFavorites'
 import { useAuthStore } from '@/stores/authStore'
 import { toast } from 'react-hot-toast'
 
-const SearchPage = () => {
+const SearchContent = () => {
   const { t } = useTranslation()
   const searchParams = useSearchParams()
   const [query, setQuery] = useState('')
@@ -476,6 +476,18 @@ const SearchPage = () => {
         )}
       </div>
     </div>
+  )
+}
+
+const SearchPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#2D4B73' }}></div>
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   )
 }
 
