@@ -1,0 +1,39 @@
+# Nunuza Project Rules
+
+## Critical Language & Target Market Rules
+**⚠️ MANDATORY: ALL development MUST target East African markets with English as primary language**
+
+### Target Markets
+- Uganda (primary market)
+- Kenya, Tanzania, Rwanda, Burundi
+
+### Language Policy
+1. **English** (Primary) - DEFAULT language for ALL interfaces
+2. **French** - Secondary for francophone regions  
+3. **Swahili** - Regional lingua franca
+
+**🚫 NEVER use Hebrew or any other language in the UI**
+
+### Translation Requirements (MANDATORY)
+Every component and feature MUST:
+- Use `useTranslation` hook from react-i18next
+- Have complete translations in `/src/locales/en/`, `/src/locales/fr/`, `/src/locales/sw/`
+- Default to English text
+- Follow existing translation patterns
+
+### Code Standards
+- TypeScript + Next.js 15
+- Tailwind CSS for styling
+- Supabase for backend
+- Mobile-first responsive design
+
+### Development Workflow
+1. Always check existing translations before creating new ones
+2. Update all three language files when adding new text
+3. Use semantic translation keys (e.g., `dashboard.title`, `posts.create`)
+4. Test with different languages in development
+
+### Project Context
+Nunuza is a marketplace for East Africa connecting buyers/sellers across multiple countries. Focus on local trade, community needs, and mobile-first experience for African markets.
+
+**Remember: This is NOT an Israeli/Hebrew project - it's for East African markets in English/French/Swahili only.** 

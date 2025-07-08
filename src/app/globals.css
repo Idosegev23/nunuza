@@ -3,6 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Brand Colors */
+  --brand-primary: #2D4B73;
+  --brand-secondary: #253C59;
+  --brand-accent: #99B4BF;
+  --brand-gold: #D9B70D;
+  --brand-gold-dark: #BF8D30;
 }
 
 @theme inline {
@@ -24,3 +31,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Brand Color Utilities */
+.text-brand-primary { color: var(--brand-primary); }
+.text-brand-secondary { color: var(--brand-secondary); }
+.text-brand-accent { color: var(--brand-accent); }
+.text-brand-gold { color: var(--brand-gold); }
+.text-brand-gold-dark { color: var(--brand-gold-dark); }
+
+.bg-brand-primary { background-color: var(--brand-primary); }
+.bg-brand-secondary { background-color: var(--brand-secondary); }
+.bg-brand-accent { background-color: var(--brand-accent); }
+.bg-brand-gold { background-color: var(--brand-gold); }
+.bg-brand-gold-dark { background-color: var(--brand-gold-dark); }
+
+.border-brand-primary { border-color: var(--brand-primary); }
+.border-brand-secondary { border-color: var(--brand-secondary); }
+.border-brand-accent { border-color: var(--brand-accent); }
+.border-brand-gold { border-color: var(--brand-gold); }
+.border-brand-gold-dark { border-color: var(--brand-gold-dark); }
+
+/* Hover states */
+.hover\:text-brand-primary:hover { color: var(--brand-primary); }
+.hover\:text-brand-secondary:hover { color: var(--brand-secondary); }
+.hover\:text-brand-accent:hover { color: var(--brand-accent); }
+.hover\:text-brand-gold:hover { color: var(--brand-gold); }
+.hover\:text-brand-gold-dark:hover { color: var(--brand-gold-dark); }
+
+.hover\:bg-brand-primary:hover { background-color: var(--brand-primary); }
+.hover\:bg-brand-secondary:hover { background-color: var(--brand-secondary); }
+.hover\:bg-brand-accent:hover { background-color: var(--brand-accent); }
+.hover\:bg-brand-gold:hover { background-color: var(--brand-gold); }
+.hover\:bg-brand-gold-dark:hover { background-color: var(--brand-gold-dark); }
